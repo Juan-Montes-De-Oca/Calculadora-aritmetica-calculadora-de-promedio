@@ -22,6 +22,7 @@ class Program
                 Alerts.NotValidOption();
                 Alerts.Pause();
                 continue;
+                
             }
 
             switch (option)

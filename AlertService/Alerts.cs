@@ -59,4 +59,5 @@ public static class Alerts
             Console.WriteLine($"\nEl estudiante ha REPROBADO con un promedio de: {average:F2}\n");
         }
     }
+    
 }
