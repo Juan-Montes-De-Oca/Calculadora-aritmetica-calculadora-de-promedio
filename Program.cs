@@ -1,4 +1,5 @@
 ﻿using System;
+
 class Program
 {
     static int Main()
@@ -6,8 +7,6 @@ class Program
         int option;
         bool isValidOption;
         double result;
-        double num1;
-        double num2;
 
         Console.WriteLine("=== CALCULADORA ARITMETICA & CALCULADORA DE PROMEDIO ===");
 
@@ -24,83 +23,68 @@ class Program
                 Alerts.Pause();
                 continue;
             }
-            
+
             switch (option)
             {
                 case 1:
-                if(!InputReader.TryRead("Introduzca el primer numero que desea sumar (Ejemplo: 1, 2, 3)", out num1)) break;
-
-                if(!InputReader.TryRead("Introduzca el segundo numero que desea sumar (Ejemplo: 1, 2, 3)", out num2)) break;
-
-                result = Calculator.Add(num1, num2);
-                Alerts.ResultMessage(result);
-                Alerts.Pause();
-                break;
+                    if (InputReader.TryExecuteOperation(1, "sumar", out result))
+                    {
+                        Alerts.ResultMessage(result);
+                        Alerts.Pause();
+                    }
+                    break;
 
                 case 2:
-                if(!InputReader.TryRead("Introduzca el primer numero que desea restar (Ejemplo: 1, 2, 3)", out num1)) break;
-
-                if(!InputReader.TryRead("Introduzca el segundo numero que desea restar (Ejemplo: 1, 2, 3)", out num2)) break;
-
-                result = Calculator.Subtract(num1, num2);
-                Alerts.ResultMessage(result);
-                Alerts.Pause();
-                break;
+                    if (InputReader.TryExecuteOperation(2, "restar", out result))
+                    {
+                        Alerts.ResultMessage(result);
+                        Alerts.Pause();
+                    }
+                    break;
 
                 case 3:
-                if(!InputReader.TryRead("Introduzca el primer numero que desea multiplicar (Ejemplo: 1, 2, 3)", out num1)) break;
-
-                if(!InputReader.TryRead("Introduzca el segundo numero que desea multiplicar (Ejemplo: 1, 2, 3)", out num2)) break;
-
-                result = Calculator.Multiply(num1, num2);
-                Alerts.ResultMessage(result);
-                Alerts.Pause();
-                break;
+                    if (InputReader.TryExecuteOperation(3, "multiplicar", out result))
+                    {
+                        Alerts.ResultMessage(result);
+                        Alerts.Pause();
+                    }
+                    break;
 
                 case 4:
-                if(!InputReader.TryRead("Introduzca el primer numero que desea dividir (Ejemplo: 1, 2, 3)", out num1)) break;
-
-                if(!InputReader.TryRead("Introduzca el segundo numero que desea dividir (Ejemplo: 1, 2, 3)", out num2)) break;
-
-                if(num2 == 0)
+                    if (InputReader.TryExecuteOperation(4, "dividir", out result))
                     {
-                        Alerts.NotValidDivision();
+                        Alerts.ResultMessage(result);
                         Alerts.Pause();
-                        break;
                     }
-
-                result = Calculator.Divide(num1, num2);
-                Alerts.ResultMessage(result);
-                Alerts.Pause();
-                break;
+                    break;
 
                 case 5:
-                double gradeSum = 0;
-                double gradeCount = 0;
-                double gradeInput;
+                    double gradeSum = 0;
+                    double gradeCount = 0;
+                    double gradeInput;
 
                     while (true)
                     {
-                        if(!InputReader.TryRead("Ingresa una nota (0-100) o -1 para terminar:", out gradeInput))
+                        if (!InputReader.TryRead("Ingresa una nota (0-100) o -1 para terminar:", out gradeInput))
                         {
                             continue;
                         }
 
-                        if(gradeInput == -1) break;
+                        if (gradeInput == -1) break;
 
-                        if(gradeInput < 0 || gradeInput > 100)
+                        if (gradeInput < 0 || gradeInput > 100)
                         {
                             Alerts.GradeOutOfRange();
                             Alerts.Pause();
                             continue;
                         }
-
                         else
                         {
                             gradeCount += 1;
                             gradeSum += gradeInput;
                         }
                     }
+
                     if (gradeCount == 0)
                     {
                         Alerts.NoGrade();
@@ -113,12 +97,11 @@ class Program
                         Alerts.IsApproved(status, average);
                         Alerts.Pause();
                     }
-
-                break;
+                    break;
 
                 case 0:
-                Alerts.ExitMessage();
-                break;
+                    Alerts.ExitMessage();
+                    break;
 
                 default:
                     Alerts.NotValidOption();
@@ -126,7 +109,7 @@ class Program
                     break;
             }
         }
-        while(option != 0);
+        while (option != 0);
 
         return 0;
     }

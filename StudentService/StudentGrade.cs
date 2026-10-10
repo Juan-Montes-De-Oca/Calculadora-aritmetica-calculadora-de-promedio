@@ -2,7 +2,6 @@ public static class StudentGrade
 {
     public static double StudentAvg(double gradeSum, double gradesCount)
     {
-        
         return (gradeSum) / (gradesCount);
     }
 

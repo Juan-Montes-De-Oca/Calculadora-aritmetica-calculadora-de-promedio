@@ -1,3 +1,5 @@
+using System;
+
 public static class Alerts
 {
     public static void NotValidOption()
@@ -7,43 +9,54 @@ public static class Alerts
 
     public static void NotValidNumber()
     {
-    Console.WriteLine("\nERROR! No es un numero valido. \n");
+        Console.WriteLine("\nERROR! No es un numero valido. \n");
     }
+
     public static void NotValidDivision()
     {
-    Console.WriteLine("\nERROR! No se puede dividir entre 0. \n");
+        Console.WriteLine("\nERROR! No se puede dividir entre 0. \n");
     }
+
+    public static void NotEnoughNumbers()
+    {
+        Console.WriteLine("\nERROR! Debe ingresar al menos 2 numeros para realizar la operacion. \n");
+    }
+
     public static void ExitMessage()
     {
-    Console.WriteLine("\nGracias por usar la calculadora. Hasta luego! \n");
+        Console.WriteLine("\nGracias por usar la calculadora. Hasta luego! \n");
     }
 
     public static void ResultMessage(double result)
     {
-    Console.WriteLine($"\nEl resultado es {result} \n");
+        Console.WriteLine($"\nEl resultado es {result} \n");
     }
+
     public static void Pause()
     {
-    Console.WriteLine("\nPresione una tecla para continuar. \n");
-    Console.ReadKey(true);
+        Console.WriteLine("\nPresione una tecla para continuar. \n");
+        Console.ReadKey(true);
     }
+
     public static void GradeOutOfRange()
     {
-    Console.WriteLine("\nERROR! La nota debe estar entre 0 y 100. \n");
+        Console.WriteLine("\nERROR! La nota debe estar entre 0 y 100. \n");
     }
+
     public static void NoGrade()
     {
-    Console.WriteLine("\nERROR! No se ha ingresado ninguna nota. Debe ingresar una nota entre 0 y 100. \n");
+        Console.WriteLine("\nERROR! No se ha ingresado ninguna nota. Debe ingresar una nota entre 0 y 100. \n");
     }
-    public static void IsApproved( bool StudentStatus, double average)
+
+    public static void IsApproved(bool StudentStatus, double average)
     {
         if (StudentStatus)
-    {
-        Console.WriteLine($"\n¡Felicidades! El estudiante ha APROBADO con un promedio de: {average:F2}\n");
-    }
-    else
-    {
-        Console.WriteLine($"\nEl estudiante ha REPROBADO con un promedio de: {average:F2}\n");
-    }
+        {
+            Console.WriteLine($"\n¡Felicidades! El estudiante ha APROBADO con un promedio de: {average:F2}\n");
+        }
+        else
+        {
+            Console.WriteLine($"\nEl estudiante ha REPROBADO con un promedio de: {average:F2}\n");
+        }
     }
 }
