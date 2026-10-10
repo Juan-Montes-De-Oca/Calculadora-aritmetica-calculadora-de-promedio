@@ -27,6 +27,8 @@ Alerts.cs: Centraliza todos los mensajes de error, formateo de resultados y paus
 
 Menu.cs: Muestra las opciones del menú principal.
 
+
+
 Cómo ejecutarlo
 Clonar el repositorio:
 
